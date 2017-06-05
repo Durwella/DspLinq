@@ -12,6 +12,13 @@
             "isBuildCommand": true,
             "showOutput": "silent",
             "problemMatcher": "$msCompile"
+        },
+        {
+            "taskName": "test",
+            "args": [
+                "Durwella.DspLinq.Tests/Durwella.DspLinq.Tests.csproj"
+            ],
+            "isTestCommand": true
         }
     ]
 }
