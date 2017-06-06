@@ -4,4 +4,13 @@
     <TargetFramework>netstandard1.4</TargetFramework>
   </PropertyGroup>
 
+  <!-- https://docs.microsoft.com/en-us/dotnet/core/tools/csproj#nuget-metadata-properties -->
+  <PropertyGroup>
+    <Description>Extensions to IEnumerable for basic signal processing operations</Description>
+    <Authors>jfoshee;durwella</Authors>
+    <VersionPrefix>0.1</VersionPrefix>
+    <VersionSuffix></VersionSuffix>
+    <PackageProjectUrl>https://github.com/Durwella/DspLinq</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Durwella/DspLinq.git</RepositoryUrl>
+  </PropertyGroup>  
 </Project>
