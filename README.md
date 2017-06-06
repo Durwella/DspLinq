@@ -6,3 +6,6 @@ A set of Extension Methods for performing basic digital signal processing operat
 
 Skips every 10th element.
 
+### Downsample
+
+Keeps only every Nth element.

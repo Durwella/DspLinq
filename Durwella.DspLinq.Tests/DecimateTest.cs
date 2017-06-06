@@ -10,6 +10,14 @@ namespace Durwella.DspLinq.Tests
     public class DecimateTest
     {
         [Fact]
+        public void ThrowsWhenSourceIsNull()
+        {
+            IEnumerable<int> sequence = null;
+            Action act = () => sequence.Decimate();
+            act.ShouldThrow<ArgumentNullException>();
+        }
+
+        [Fact]
         public void EmptyCase()
         {
             new int[0].Decimate().Should().BeEmpty();

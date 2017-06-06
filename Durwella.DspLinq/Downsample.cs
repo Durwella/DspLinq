@@ -6,28 +6,30 @@ namespace Durwella.DspLinq
     public static partial class DspEnumerable
     {
         /// <summary>
-        /// Skips every 10th element.
+        /// Keeps every Nth element.
         /// </summary>
         /// <param name="source">Source sequence.</param>
-        /// <returns>A sequence with every 10th element of the input sequence skipped.</returns>
-        public static IEnumerable<T> Decimate<T>(this IEnumerable<T> source)
+        /// <returns>A sequence with only the 1st element and every nth element thereafter.</returns>
+        public static IEnumerable<T> Downsample<T>(this IEnumerable<T> source, int n)
         {
-            if (source == null) throw new ArgumentNullException(nameof(source));
+            if (source == null) 
+                throw new ArgumentNullException(nameof(source));
+            if (n <= 0)
+                throw new ArgumentException("N must be a positive integer for downsampling.", nameof(n));
             // Ensure arg exceptions are thrown by nesting coroutine                
             return _(); IEnumerable<T> _()
             {
                 using (var enumerator = source.GetEnumerator())
                 {
-                    int i = 0;
+                    int i = n;
                     while (enumerator.MoveNext())
                     {
-                        ++i;
-                        if (i == 10)
+                        if (i == n)
                         {
                             i = 0;
-                            continue;
+                            yield return enumerator.Current;
                         }
-                        yield return enumerator.Current;
+                        ++i;
                     }
                 }
             }
