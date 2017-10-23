@@ -11,4 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Durwella.DspLinq\Durwella.DspLinq.csproj" />
   </ItemGroup>
+  <PropertyGroup>
+    <IsPackage>False</IsPackage>
+  </PropertyGroup>
 </Project>
